@@ -1,4 +1,4 @@
-import { TMovieResult } from "./types/MovieTypes";
+import { type TMovieResult } from "./types/MovieTypes";
 
 export default async function getMovieCardId({
   params,

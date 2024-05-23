@@ -1,4 +1,4 @@
-import { TNowPlayingMovieObject } from "./types/MovieTypes";
+import { type TNowPlayingMovieObject } from "./types/MovieTypes";
 
 // export const getMoviesNowPlaying =
 //   async (): Promise<TNowPlayingMovieObject> => {
