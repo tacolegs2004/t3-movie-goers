@@ -8,9 +8,8 @@ export default function MovieSearchList({
   moviePromise: Promise<TMovie>;
 }) {
   const results = use(moviePromise);
-  results.results.map((result) => console.log(result));
   if (!results) {
-    return <NullResults />;
+    return <div className="text-center text-2xl">No results found</div>;
   }
   return (
     <div className="flex flex-col items-center justify-center">
@@ -21,8 +20,4 @@ export default function MovieSearchList({
       </div>
     </div>
   );
-}
-
-function NullResults() {
-  return <div className="text-center text-2xl">No results found</div>;
 }

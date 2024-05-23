@@ -28,7 +28,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="flex h-[68px] w-full justify-between bg-slate-400 p-8">
+    <header className="sticky flex h-[68px] w-full justify-between bg-slate-400 p-8">
       <Link
         href="/"
         className="-mt-4 ml-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold dark:text-white dark:hover:text-black"
@@ -36,7 +36,7 @@ export default function Navbar() {
         MovieGoers
       </Link>
 
-      <div className="-pr-8 -mr-10 flex flex-row items-center justify-center gap-8 sm:ml-24">
+      <nav className="-pr-8 -mr-10 flex flex-row items-center justify-center gap-8 sm:ml-24">
         <ul className="mt-4 rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse dark:border-gray-700 md:dark:bg-gray-900">
           {navItems.map((item) => (
             <Link
@@ -63,7 +63,7 @@ export default function Navbar() {
             <UserButton />
           </SignedIn>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

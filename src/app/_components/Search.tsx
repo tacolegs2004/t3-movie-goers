@@ -1,11 +1,12 @@
 "use client";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Search(props: { query: string }) {
   const searchParams = useSearchParams();
-  // const pathname = usePathname();
-  // const { replace } = useRouter();
+  const pathname = usePathname();
+  // eslint-disable-next-line @typescript-eslint/unbound-method
+  const { replace } = useRouter();
 
   function handleSearch(term: string) {
     const params = new URLSearchParams(searchParams);
@@ -14,7 +15,7 @@ export default function Search(props: { query: string }) {
     } else {
       params.delete("query");
     }
-    // replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`);
   }
 
   return (
