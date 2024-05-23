@@ -1,6 +1,6 @@
 "use client";
-import { TNowPlayingMovieObject } from "@/src/lib/types/MovieTypes";
 import { Suspense, use } from "react";
+import { type TNowPlayingMovieObject } from "~/lib/types/MovieTypes";
 import MovieListCard from "./MovieListCard";
 import MovieListWrapper from "./MovieListWrapper";
 
@@ -9,7 +9,7 @@ export default function NowPlayingMovieList({
 }: {
   nowPlayingMovieListPromise: Promise<TNowPlayingMovieObject>;
 }) {
-  const { results } = use(nowPlayingMovieListPromise) as TNowPlayingMovieObject;
+  const { results } = use(nowPlayingMovieListPromise);
   return (
     <MovieListWrapper>
       <Suspense fallback={<h1>Loading...</h1>}>
@@ -37,7 +37,7 @@ function ArrowBigRightIcon() {
       <svg
         onClick={scrollRight}
         xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12 text-black hover:text-gray-500 cursor-pointer"
+        className="h-12 w-12 cursor-pointer text-black hover:text-gray-500"
         viewBox="0 0 20 20"
         fill="currentColor"
       >

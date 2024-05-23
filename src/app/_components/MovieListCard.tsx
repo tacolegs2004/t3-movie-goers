@@ -1,12 +1,8 @@
-import { TMovieResult } from "@/src/lib/types/MovieTypes";
 import Image from "next/image";
 import Link from "next/link";
+import { type TMovieResult } from "~/lib/types/MovieTypes";
 
-export default function MovieListCard({
-  results,
-}: {
-  results: TMovieResult;
-}) {
+export default function MovieListCard({ results }: { results: TMovieResult }) {
   return (
     <div className="flex items-center justify-center">
       <span key={results.id} className="h-full sm:w-full sm:grid-cols-3">

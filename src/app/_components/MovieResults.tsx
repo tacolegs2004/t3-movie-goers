@@ -1,6 +1,6 @@
 "use client";
-import { TMovie } from "@/src/lib/types/MovieTypes";
 import React from "react";
+import { type TMovie } from "~/lib/types/MovieTypes";
 
 export default function MovieResults() {
   const [query] = React.useState("");
@@ -11,7 +11,7 @@ export default function MovieResults() {
   >(() => null);
 
   const handleMovies = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!movieResults) return null
+    if (!movieResults) return null;
     try {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie?query=${movieResults}&api_key=${process.env.NEXT_APP_API_KEY}`,
@@ -56,6 +56,5 @@ export default function MovieResults() {
       </form>
       {isLoading && <div>Loading...</div>}
     </>
-  )
+  );
 }
-

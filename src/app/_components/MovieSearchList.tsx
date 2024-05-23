@@ -1,5 +1,5 @@
-import { TMovie } from "@/src/lib/types/MovieTypes";
 import { use } from "react";
+import { type TMovie } from "~/lib/types/MovieTypes";
 import MovieListCard from "./MovieListCard";
 
 export default function MovieSearchList({
@@ -7,14 +7,14 @@ export default function MovieSearchList({
 }: {
   moviePromise: Promise<TMovie>;
 }) {
-  const results = use(moviePromise) as TMovie;
+  const results = use(moviePromise);
   results.results.map((result) => console.log(result));
   if (!results) {
     return <NullResults />;
   }
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="flex flex-col items-center justify-center">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {results.results.map((result) => (
           <MovieListCard key={result.id} results={result} />
         ))}

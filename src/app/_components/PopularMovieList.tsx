@@ -1,5 +1,5 @@
-import { TMovie } from "@/src/lib/types/MovieTypes";
 import { Suspense, use } from "react";
+import { type TMovie } from "~/lib/types/MovieTypes";
 import MovieListCard from "./MovieListCard";
 import MovieListWrapper from "./MovieListWrapper";
 
@@ -8,7 +8,7 @@ export default function PopularMovieList({
 }: {
   popularMoviePromise: Promise<TMovie>;
 }) {
-  const { results } = use(popularMoviePromise) as TMovie;
+  const { results } = use(popularMoviePromise);
 
   return (
     <>
