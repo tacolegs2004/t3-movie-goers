@@ -7,7 +7,7 @@ const MovieListCard = (props: { result: TMovieResult }) => {
     <div className="items-centerh-full flex w-fit justify-center">
       <span
         key={props.result.id}
-        className="flex h-fit items-center justify-center rounded-lg border-gray-700 bg-red-700 text-center transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl md:h-full md:w-full dark:border-gray-300"
+        className="flex h-fit items-center justify-center rounded-lg border-gray-700 text-center transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl md:h-full md:w-full dark:border-gray-300"
       >
         <Link
           href={`/movie/${props.result.id}`}

@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 flex h-[68px] w-screen justify-between bg-slate-400 p-4 text-black md:p-8">
+    <header className="sticky flex h-[68px] w-screen justify-between bg-slate-400 p-4 text-black md:p-8">
       <Link
         href="/"
         className="flex items-center gap-2 text-xl font-semibold transition-all hover:text-2xl"
@@ -44,7 +44,7 @@ const Navbar = () => {
           <li key="search" className="md:ml-4">
             <Link
               href={"/search"}
-              className="block rounded px-3 py-2 text-xl font-semibold transition-all hover:text-2xl"
+              className="my-2 ml-6 block rounded text-xl font-semibold transition-all hover:text-2xl"
               aria-label="Search"
             >
               Search
@@ -59,11 +59,15 @@ const Navbar = () => {
         >
           <SignedOut>
             <b className="mr-4 w-8 text-xl">
-              <SignInButton />{" "}
+              <button className="text-primary-foreground focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md bg-slate-400 p-4 text-sm font-medium shadow transition-colors hover:bg-slate-400/90 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50">
+                <SignInButton />{" "}
+              </button>
             </b>
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <span className="-ml-4 w-8 text-xl">
+              <UserButton />
+            </span>
           </SignedIn>
         </div>
       </nav>

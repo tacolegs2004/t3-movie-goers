@@ -1,3 +1,10 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "~/components/ui/carousel";
 import getMovies from "~/lib/getMovies";
 import NowPlayingMovieList from "./_components/NowPlayingMovieList";
 import PopularMovieList from "./_components/PopularMovieList";
@@ -10,9 +17,15 @@ export default function Home() {
     <>
       <main>
         <div className="gap-32">
-          <div className="mb-8 ml-4 mt-4 flex flex-col items-center justify-center text-xl font-bold">
-            <h1>Now Playing</h1>
-          </div>
+          <Carousel>
+            <CarouselContent>
+              <CarouselItem>
+                <PopularMovieList popularMoviePromise={popularMovieListReq} />
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
           <NowPlayingMovieList
             nowPlayingMovieListPromise={nowPlayingMovieListReq}
           />

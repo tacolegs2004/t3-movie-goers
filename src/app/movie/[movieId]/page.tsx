@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import MovieCardId from "~/app/_components/MovieCardId";
+import { Textarea } from "~/components/ui/textarea";
 import { getComments } from "~/server/queries";
 import TComment from "../../_components/Comment";
 import { getNewCommentAction } from "./actions";
@@ -62,7 +63,7 @@ export default async function Page({
             method="post"
             className="flex flex-col items-center justify-center gap-2"
           >
-            <input
+            <Textarea
               id="comment"
               name="comment"
               required
@@ -71,7 +72,7 @@ export default async function Page({
             />
             <button
               type="submit"
-              className="mr-[42%] rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 md:ml-[96px]"
+              className="mr-[44%] rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 md:ml-[96px]"
             >
               Submit
             </button>
