@@ -2,7 +2,7 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function Search(props: { query: string }) {
+const Search = (props: { query: string }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -19,8 +19,11 @@ export default function Search(props: { query: string }) {
   }
 
   return (
-    <div className="relative -mt-8 flex flex-1 flex-shrink-0 p-4">
-      <form action="" className="m-4 mt-8  w-96 rounded-lg border-2">
+    <div className="relative -mt-8 flex flex-1 flex-shrink-0 p-4 text-black">
+      <form
+        action=""
+        className="m-4 mt-8 w-64 rounded-lg border-2 md:w-[400px]"
+      >
         <label htmlFor="search" className="sr-only">
           Search
         </label>
@@ -36,4 +39,6 @@ export default function Search(props: { query: string }) {
       </form>
     </div>
   );
-}
+};
+
+export default Search;

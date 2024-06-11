@@ -7,7 +7,7 @@ type TParams = {
   };
 };
 
-export default async function MovieCardId(params: TParams) {
+const MovieCardId = async (params: TParams) => {
   const movie = await getMovieCardId(params);
   return (
     <div className="flex items-center justify-center lg:mt-24">
@@ -16,7 +16,7 @@ export default async function MovieCardId(params: TParams) {
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
           width={150}
-          className=" mb-4 ml-8 mt-24 h-full w-[60%] pr-2 lg:ml-0 lg:mt-0 lg:h-[90%] lg:w-[40%] lg:pr-0"
+          className="mb-4 ml-8 mt-24 w-[80%] pr-2 md:h-full md:w-[60%] lg:ml-0 lg:mt-0 lg:h-[90%] lg:w-[40%] lg:pr-0"
           height={120}
         />
         <h1>{movie.title}</h1>
@@ -37,4 +37,6 @@ export default async function MovieCardId(params: TParams) {
       </section>
     </div>
   );
-}
+};
+
+export default MovieCardId;

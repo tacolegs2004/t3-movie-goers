@@ -2,7 +2,7 @@
 import React from "react";
 import { type TMovie } from "~/lib/types/MovieTypes";
 
-export default function MovieResults() {
+const MovieResults = () => {
   const [query] = React.useState("");
   const [movieResults, setMovieResults] = React.useState<string>();
   const [isLoading, setIsLoading] = React.useState(false);
@@ -57,4 +57,6 @@ export default function MovieResults() {
       {isLoading && <div>Loading...</div>}
     </>
   );
-}
+};
+
+export default MovieResults;

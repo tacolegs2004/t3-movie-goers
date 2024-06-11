@@ -20,7 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <main>
+          <main className="text-foreground bg-background">
             <Navbar />
             <div className="flex-1 flex-grow">{children}</div>
           </main>

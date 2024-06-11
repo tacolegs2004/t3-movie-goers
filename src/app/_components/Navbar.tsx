@@ -1,63 +1,66 @@
+"use client";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { type HTMLAttributeAnchorTarget } from "react";
+import { useState } from "react";
 
-type TNavbar = {
-  name: string;
-  route: string;
-  id: number;
-  target?: HTMLAttributeAnchorTarget;
-};
+const Navbar = () => {
+  // const user = useClerk();
+  const [isOpen, setIsOpen] = useState(false);
 
-export default function Navbar() {
-  const navItems: TNavbar[] = [
-    { name: "Home", route: "/", id: 0 },
-    { name: "Search", route: "/search", id: 1 },
-    {
-      name: "Login",
-      route:
-        "https://enough-penguin-19.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F",
-      id: 2,
-    },
-    {
-      name: "Github",
-      route: "https://github.com/tacolegs2004/movie-goers",
-      id: 3,
-      target: "_blank",
-    },
-  ];
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <header className="sticky flex h-[68px] w-full justify-between bg-slate-400 p-8">
+    <header className="sticky top-0 flex h-[68px] w-screen justify-between bg-slate-400 p-4 text-black md:p-8">
       <Link
         href="/"
-        className="-mt-4 ml-4 text-2xl font-bold transition-all hover:text-3xl hover:font-extrabold dark:text-white dark:hover:text-black"
+        className="flex items-center gap-2 text-xl font-semibold transition-all hover:text-2xl"
       >
         MovieGoers
       </Link>
 
-      <nav className="-pr-8 -mr-10 flex flex-row items-center justify-center gap-8 sm:ml-24">
-        <ul className="mt-4 rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse dark:border-gray-700 md:dark:bg-gray-900">
-          {navItems.map((item) => (
+      <button
+        className="text-2xl md:hidden"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        &#9776;
+      </button>
+
+      <nav
+        className={`${isOpen ? "flex" : "hidden"} flex-col items-center justify-center gap-4 md:flex md:flex-row md:gap-8`}
+      >
+        <ul className="mt-16 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:p-0">
+          <li key="home" className="md:ml-4">
             <Link
-              href={item.route}
-              key={item.id}
-              className="rounded px-3 py-2 text-xl font-semibold text-black transition-all hover:text-2xl md:visible md:bg-transparent md:p-0 dark:text-white"
-              target={item.target ? "_blank" : ""}
-              aria-label={item.name}
+              href={"/"}
+              className="block rounded px-3 py-2 text-xl font-semibold transition-all hover:text-2xl"
+              aria-label="Home"
             >
-              {item.name}
+              Home
             </Link>
-          ))}
+          </li>
+          <li key="search" className="md:ml-4">
+            <Link
+              href={"/search"}
+              className="block rounded px-3 py-2 text-xl font-semibold transition-all hover:text-2xl"
+              aria-label="Search"
+            >
+              Search
+            </Link>
+          </li>
         </ul>
 
         <div
-          className="mr-12"
+          className="mt-4 md:ml-4 md:mt-0"
           id="profile-pic"
           aria-label="Your profile picture"
         >
           <SignedOut>
-            <SignInButton />
+            <b className="mr-4 w-8 text-xl">
+              <SignInButton />{" "}
+            </b>
           </SignedOut>
           <SignedIn>
             <UserButton />
@@ -66,4 +69,6 @@ export default function Navbar() {
       </nav>
     </header>
   );
-}
+};
+
+export default Navbar;

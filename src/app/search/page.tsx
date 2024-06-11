@@ -1,19 +1,17 @@
 import { Suspense } from "react";
-import getPopularMovies from "~/lib/getPopularMovies";
+import getMovies from "~/lib/getMovies";
 import getSearchedMovies from "~/lib/getSearchedMovies";
 import MovieListCard from "../_components/MovieListCard";
 import Search from "../_components/Search";
 
-export default async function Page({
-  searchParams,
-}: {
+export default async function Page(props: {
   searchParams?: {
     query?: string;
     page?: string;
   };
 }) {
-  const movieListReq = await getPopularMovies();
-  const query = searchParams?.query ?? "";
+  const movieListReq = await getMovies("popular");
+  const query = props.searchParams?.query ?? "";
   const searchMovies = await getSearchedMovies({ query: query });
 
   if (!searchMovies) return <div>Movies not found...</div>;
@@ -25,10 +23,10 @@ export default async function Page({
         <div className="grid w-[80vw] grid-cols-3 gap-24">
           {searchMovies
             ? searchMovies.results.map((movie) => (
-                <MovieListCard results={movie} key={movie.id} />
+                <MovieListCard result={movie} key={movie.id} />
               ))
             : movieListReq.results.map((movie) => (
-                <MovieListCard results={movie} key={movie.id} />
+                <MovieListCard result={movie} key={movie.id} />
               ))}
         </div>
       </Suspense>

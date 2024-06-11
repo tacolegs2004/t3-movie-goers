@@ -5,13 +5,6 @@ export interface TMovie {
   total_results: number;
 }
 
-export interface TNowPlayingMovieObject extends TMovie {
-  dates: {
-    maximum: string;
-    minimum: string;
-  };
-}
-
 export interface TMovieResult {
   adult: boolean;
   backdrop_path: string;
@@ -28,4 +21,3 @@ export interface TMovieResult {
   vote_average: number;
   vote_count: number;
 }
-
