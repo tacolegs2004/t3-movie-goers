@@ -3,7 +3,6 @@
 
 import { sql } from "drizzle-orm";
 import { index, pgTableCreator, timestamp, varchar } from "drizzle-orm/pg-core";
-import { z } from "zod";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same

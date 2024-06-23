@@ -2,53 +2,20 @@ import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import React from "react";
 import MovieCardId from "~/app/_components/MovieCardId";
 import Comment from "~/components/comment-component";
-import { Textarea } from "~/components/ui/textarea";
 import { getComments } from "~/server/queries";
 
-const Page = async ({
-  params,
-}: {
-  params: {
-    movieId: string;
-    comments: {
-      name: string;
-      avatar: string;
-      body: string;
-      rating: string;
-      key: string;
-      created_At: Date;
-      updated_At: Date | null;
-      userId: string;
-      movieId: string;
-      commentId: string;
-    };
-  };
-}) => {
-  // const { user } = useClerk();
+const Page = async ({ params }: { params: { movieId: string } }) => {
   const comments = await getComments();
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const comment = formData.get("comment") as string;
+    const rating = formData.get("rating") as string;
+    console.log(comment, rating);
+  }
+
   const newComments = [...comments];
-
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.currentTarget);
-  //   const comment = formData.get("comment") as string;
-  //   const rating = formData.get("rating") as string;
-
-  //   const res = await fetch("/api/comments", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       comment,
-  //       rating,
-  //       movieId: params.movieId,
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   return res.json();
-  // };
 
   return (
     <>
@@ -88,7 +55,7 @@ const Page = async ({
               // action={(e) => handleSubmit(e)}
               className="flex flex-col items-center justify-center gap-2"
             >
-              <Textarea
+              <textarea
                 id="comment"
                 name="comment"
                 required
