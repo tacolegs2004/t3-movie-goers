@@ -1,14 +1,9 @@
 import Image from "next/image";
 import getMovieCardId from "~/lib/getMovieCardId";
 
-type TParams = {
-  params: {
-    movieId: string;
-  };
-};
+const MovieCardId = async ({ params }: { params: { movieId: string } }) => {
+  const movie = await getMovieCardId({ params });
 
-const MovieCardId = async (params: TParams) => {
-  const movie = await getMovieCardId(params);
   return (
     <div className="flex items-center justify-center lg:mt-24">
       <section className="container my-4 ml-12 mr-12 flex flex-col items-center justify-center lg:h-screen lg:w-screen">

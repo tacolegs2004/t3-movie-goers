@@ -18,12 +18,18 @@ export default function Home() {
       <main>
         <div className="gap-32">
           <Carousel>
+            <CarouselPrevious />
             <CarouselContent>
               <CarouselItem>
                 <PopularMovieList popularMoviePromise={popularMovieListReq} />
               </CarouselItem>
+              <CarouselItem>
+                <PopularMovieList popularMoviePromise={popularMovieListReq} />
+              </CarouselItem>
+              <CarouselItem>
+                <PopularMovieList popularMoviePromise={popularMovieListReq} />
+              </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious />
             <CarouselNext />
           </Carousel>
           <NowPlayingMovieList

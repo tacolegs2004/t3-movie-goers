@@ -3,6 +3,7 @@
 
 import { sql } from "drizzle-orm";
 import { index, pgTableCreator, timestamp, varchar } from "drizzle-orm/pg-core";
+import { z } from "zod";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -22,11 +23,13 @@ export const commentSchema = createTable(
       )
       .notNull(),
     body: varchar("body", { length: 1024 }).notNull(),
+    rating: varchar("rating", { length: 256 }).notNull(),
+
     key: varchar("key", { length: 256 }).notNull(),
-    createdAt: timestamp("created_at", { withTimezone: true })
+    created_At: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: timestamp("updatedAt", { withTimezone: true }),
+    updated_At: timestamp("updatedAt", { withTimezone: true }),
     userId: varchar("user_id", { length: 256 }).notNull(),
     movieId: varchar("movie_id", { length: 256 }).notNull(),
     commentId: varchar("comment_id", { length: 256 }).notNull(),

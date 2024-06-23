@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Navbar = () => {
-  // const user = useClerk();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -59,7 +58,7 @@ const Navbar = () => {
         >
           <SignedOut>
             <b className="mr-4 w-8 text-xl">
-              <button className="text-primary-foreground focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md bg-slate-400 p-4 text-sm font-medium shadow transition-colors hover:bg-slate-400/90 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50">
+              <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-slate-400 p-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-slate-400/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
                 <SignInButton />{" "}
               </button>
             </b>
