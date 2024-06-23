@@ -29,26 +29,26 @@ const Page = async ({
 
   const newComments = [...comments];
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const comment = formData.get("comment") as string;
-    const rating = formData.get("rating") as string;
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   const formData = new FormData(e.currentTarget);
+  //   const comment = formData.get("comment") as string;
+  //   const rating = formData.get("rating") as string;
 
-    const res = await fetch("/api/comments", {
-      method: "POST",
-      body: JSON.stringify({
-        comment,
-        rating,
-        movieId: params.movieId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  //   const res = await fetch("/api/comments", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       comment,
+  //       rating,
+  //       movieId: params.movieId,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
 
-    return res.json();
-  };
+  //   return res.json();
+  // };
 
   return (
     <>
@@ -85,7 +85,7 @@ const Page = async ({
           <SignedIn>
             <form
               method="post"
-              action={(e) => handleSubmit(e)}
+              // action={(e) => handleSubmit(e)}
               className="flex flex-col items-center justify-center gap-2"
             >
               <Textarea
