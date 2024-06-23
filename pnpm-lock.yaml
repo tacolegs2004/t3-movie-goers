@@ -107,10 +107,10 @@ devDependencies:
     specifier: ^8.4.34
     version: 8.4.38
   prettier:
-    specifier: ^3.3.0
+    specifier: ^3.3.2
     version: 3.3.2
   prettier-plugin-tailwindcss:
-    specifier: ^0.6.1
+    specifier: ^0.6.3
     version: 0.6.3(prettier@3.3.2)
   tailwindcss:
     specifier: ^3.4.1
