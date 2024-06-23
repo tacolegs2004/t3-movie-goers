@@ -10,6 +10,7 @@ const MovieCardId = async ({ params }: { params: { movieId: string } }) => {
         <Image
           src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
           alt={movie.title}
+          priority
           width={150}
           className="mb-4 ml-8 mt-24 w-[80%] pr-2 md:h-full md:w-[60%] lg:ml-0 lg:mt-0 lg:h-[90%] lg:w-[40%] lg:pr-0"
           height={120}
