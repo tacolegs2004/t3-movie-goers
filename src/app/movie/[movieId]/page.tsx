@@ -3,56 +3,73 @@ import React from "react";
 import MovieCardId from "~/app/_components/MovieCardId";
 import Comment from "~/components/comment-component";
 import { getComments } from "~/server/queries";
+// import getNewComments from "./actions";
 
-const Page = async ({ params }: { params: { movieId: string } }) => {
+type Comment = {
+  name: string;
+  avatar: string;
+  body: string;
+  rating: string;
+  key: string;
+  created_At: Date;
+  updated_At: Date | null;
+  userId: string;
+  movieId: string;
+  commentId: string;
+};
+
+const Page = async ({
+  params,
+}: {
+  params: {
+    movieId: string;
+  };
+}) => {
   const comments = await getComments();
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const comment = formData.get("comment") as string;
-    const rating = formData.get("rating") as string;
-    console.log(comment, rating);
-  }
-
   const newComments = [...comments];
 
+  const addNewComment = async (formData: FormData) => {
+    const rawFormData = {
+      commentId: formData.get("commentId"),
+      rating: formData.get("rating"),
+    };
+
+    const newComment = [...newComments].map((comment) => {
+      return {
+        ...comment,
+        ...rawFormData,
+      };
+    });
+
+    comments.push(newComment as unknown as Comment);
+    console.log(newComment);
+    return newComment;
+  };
   return (
     <>
       <section>
         <MovieCardId params={params} />
       </section>
-      <section>
-        <div className="mt-16 gap-3 space-y-4">
-          {comments.map(
-            (comment) =>
-              comment.movieId === params.movieId && (
-                <Comment comment={comment} key={comment.key} />
-              ),
-          )}
-          {newComments.map(
-            (comment) =>
-              comment.movieId === params.movieId && (
-                <Comment comment={comment} key={comment.key} />
-              ),
-          )}
+      <section className="mt-16 gap-3 space-y-4">
+        {comments.map(
+          (comment) =>
+            comment.movieId === params.movieId && (
+              <Comment comment={comment} key={comment.key} />
+            ),
+        )}
+        {newComments.map(
+          (comment) =>
+            comment.movieId === params.movieId && (
+              <Comment comment={comment} key={comment.key} />
+            ),
+        )}
 
-          <SignedOut>
-            <div className="flex flex-col items-center justify-center gap-2">
-              <SignInButton>
-                <button
-                  type="submit"
-                  className="rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-                >
-                  Sign in to comment.
-                </button>
-              </SignInButton>
-            </div>
-          </SignedOut>
-          <SignedIn>
+        <SignedIn>
+          <section className="flex flex-col items-center justify-center gap-2">
+            {" "}
             <form
               method="post"
-              // action={(e) => handleSubmit(e)}
+              action={addNewComment}
               className="flex flex-col items-center justify-center gap-2"
             >
               <textarea
@@ -73,13 +90,25 @@ const Page = async ({ params }: { params: { movieId: string } }) => {
 
               <button
                 type="submit"
-                className="mr-[44%] rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 md:ml-[96px]"
+                className="rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 md:mr-[89%]"
               >
                 Submit
               </button>
             </form>
-          </SignedIn>
-        </div>
+          </section>
+        </SignedIn>
+        <SignedOut>
+          <div className="flex flex-col items-center justify-center gap-2">
+            <SignInButton>
+              <button
+                type="submit"
+                className="rounded-lg bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+              >
+                Sign in to comment.
+              </button>
+            </SignInButton>
+          </div>
+        </SignedOut>
       </section>
     </>
   );
