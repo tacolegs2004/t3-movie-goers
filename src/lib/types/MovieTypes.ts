@@ -1,11 +1,13 @@
-export interface TMovie {
+import type { getComments } from "~/server/queries";
+
+export type TMovie = {
   page: number;
   results: TMovieResult[];
   total_pages: number;
   total_results: number;
-}
+};
 
-export interface TMovieResult {
+export type TMovieResult = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -20,4 +22,6 @@ export interface TMovieResult {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
+
+export type TComment = Awaited<ReturnType<typeof getComments>>[number];

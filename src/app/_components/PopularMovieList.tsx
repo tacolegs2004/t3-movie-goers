@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { type TMovie } from "~/lib/types/MovieTypes";
 import MovieListCard from "./MovieListCard";
-import MovieListWrapper from "./MovieListWrapper";
 
 const PopularMovieList = async ({
   popularMoviePromise,
@@ -13,11 +12,9 @@ const PopularMovieList = async ({
   return (
     <>
       <Suspense fallback={<h1>Loading...</h1>}>
-        <MovieListWrapper>
-          {results.map((result) => (
-            <MovieListCard key={result.id} result={result} />
-          ))}
-        </MovieListWrapper>
+        {results.map((result) => (
+          <MovieListCard key={result.id} result={result} />
+        ))}
       </Suspense>
     </>
   );

@@ -3,21 +3,21 @@ import { type TMovie } from "~/lib/types/MovieTypes";
 import MovieListCard from "./MovieListCard";
 import MovieListWrapper from "./MovieListWrapper";
 
-const NowPlayingMovieList = async ({
-  nowPlayingMovieListPromise,
+const MovieList = async ({
+  movieListPromise,
 }: {
-  nowPlayingMovieListPromise: Promise<TMovie>;
+  movieListPromise: Promise<TMovie>;
 }) => {
-  const { results } = await nowPlayingMovieListPromise;
+  const { results } = await movieListPromise;
   return (
-    <MovieListWrapper>
-      <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <MovieListWrapper>
         {results.map((result) => (
-          <MovieListCard key={result.id} result={result} />
+          <MovieListCard result={result} key={result.id} />
         ))}
-      </Suspense>
-    </MovieListWrapper>
+      </MovieListWrapper>
+    </Suspense>
   );
 };
 
-export default NowPlayingMovieList;
+export default MovieList;

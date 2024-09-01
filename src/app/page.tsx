@@ -1,13 +1,5 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "~/components/ui/carousel";
 import getMovies from "~/lib/getMovies";
-import NowPlayingMovieList from "./_components/NowPlayingMovieList";
-import PopularMovieList from "./_components/PopularMovieList";
+import MovieList from "./_components/NowPlayingMovieList";
 
 export default function Home() {
   const popularMovieListReq = getMovies("popular");
@@ -15,34 +7,17 @@ export default function Home() {
 
   return (
     <>
-      <main>
-        <div className="gap-32">
-          <Carousel>
-            <CarouselPrevious />
-            <CarouselContent>
-              <CarouselItem>
-                <PopularMovieList popularMoviePromise={popularMovieListReq} />
-              </CarouselItem>
-              <CarouselItem>
-                <PopularMovieList popularMoviePromise={popularMovieListReq} />
-              </CarouselItem>
-              <CarouselItem>
-                <PopularMovieList popularMoviePromise={popularMovieListReq} />
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselNext />
-          </Carousel>
-          <NowPlayingMovieList
-            nowPlayingMovieListPromise={nowPlayingMovieListReq}
-          />
-          <br />
-          <div className="mb-8 ml-4 mt-4 flex flex-col items-center justify-center pb-4 text-xl font-bold">
-            <h1>Popular</h1>
-          </div>
-          <PopularMovieList popularMoviePromise={popularMovieListReq} />
-          <br />
-        </div>
-      </main>
+      <section>
+        <h1 className="p-4 text-xl font-bold">Popular</h1>
+
+        <MovieList movieListPromise={popularMovieListReq} />
+      </section>
+
+      <section>
+        <h1 className="p-4 text-xl font-bold">Now Playing</h1>
+
+        <MovieList movieListPromise={nowPlayingMovieListReq} />
+      </section>
     </>
   );
 }

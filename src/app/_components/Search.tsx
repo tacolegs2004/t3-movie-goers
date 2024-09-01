@@ -33,6 +33,7 @@ const Search = (props: { query: string }) => {
           onChange={(e) => {
             handleSearch(e.target.value);
           }}
+          autoFocus={true}
           defaultValue={props.query}
         />
         <MagnifyingGlassIcon className="absolute left-8 top-1/2 ml-4 mt-2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
