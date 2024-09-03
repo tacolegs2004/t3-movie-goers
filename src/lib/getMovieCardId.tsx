@@ -1,17 +1,17 @@
 import { type TMovieResult } from "./types/MovieTypes";
 
-const getMovieCardId = async ({ params }: { params: { movieId: string } }) => {
-  const res = await fetch(
+export default async function getMovieCardId({
+  params,
+}: {
+  params: { movieId: string };
+}) {
+  const resp = await fetch(
     `https://api.themoviedb.org/3/movie/${params.movieId}?api_key=${process.env.NEXT_APP_API_KEY}`,
   );
 
-  if (!res.ok) {
-    throw new Error("There was an error fetching the data");
-  }
+  if (!resp.ok) throw new Error("Data failed to fetch.");
 
-  const movie = (await res.json()) as TMovieResult;
+  const data = (await resp.json()) as TMovieResult;
 
-  return movie;
-};
-
-export default getMovieCardId;
+  return data;
+}
