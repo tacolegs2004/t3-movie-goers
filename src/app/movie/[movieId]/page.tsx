@@ -3,9 +3,7 @@ import Image from "next/image";
 import CommentComponent from "~/components/comment-component";
 import getMovieCardId from "~/lib/getMovieCardId";
 import { db } from "~/server/db";
-import type { getComments } from "~/server/queries";
 
-type Comment = Awaited<ReturnType<typeof getComments>>[number];
 const Page = async ({
   params,
 }: {
@@ -15,7 +13,7 @@ const Page = async ({
 }) => {
   const movie = await getMovieCardId({ params });
   const commentData = await db.query.commentSchema.findMany();
-  const newComments = [...commentData];
+  // const newComments = [...commentData];
 
   const newComment = {
     name: "John Doe",
