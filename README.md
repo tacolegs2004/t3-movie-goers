@@ -1,16 +1,10 @@
-# Create T3 App
+# t3-movie-goers
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is a [T3](https://create.t3.gg/) project bootstrapped with [`create-t3-app`](https://github.com/t3-oss/create-t3-app).
 
-## What's next? How do I make an app with this?
+## What is Movie Goers?
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
-- [Next.js](https://nextjs.org)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
+Movie Goers is an open source movie reviewing app that allows users to rate movies and leave comments. This project was bootstrapped with [`create-t3-app`](https://github.com/t3-oss/create-t3-app).
 
 ## Learn More
 
@@ -21,6 +15,16 @@ To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the fo
 
 You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-## How do I deploy this?
+## Getting Started
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+You'll need to create a `.env` file in the root of the project. You can use the `.env.example` file as a template. You can get your API keys from [The Movie DB](https://www.themoviedb.org/settings/api), [Clerk](https://clerk.com/docs/get-started/installation), and a [Vercel Postgres DB](hhttps://vercel.com/docs/storage/vercel-postgres#vercel-postgres).
+
+```bash
+npm run dev
+
+pnpm dev
+
+yarn dev
+```
+
+Glhf!!

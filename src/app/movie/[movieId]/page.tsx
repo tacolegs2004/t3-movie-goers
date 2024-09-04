@@ -13,7 +13,6 @@ const Page = async ({
 }) => {
   const movie = await getMovieCardId({ params });
   const commentData = await db.query.commentSchema.findMany();
-  // const newComments = [...commentData];
 
   const newComment = {
     name: "John Doe",

@@ -12,7 +12,6 @@ export default function Home() {
 
         <MovieList movieListPromise={popularMovieListReq} />
       </section>
-
       <section>
         <h1 className="p-4 text-xl font-bold">Now Playing</h1>
 
