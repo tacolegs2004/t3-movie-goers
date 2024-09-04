@@ -7,7 +7,5 @@ export default async function getMovies(param: string) {
 
   if (!resp.ok) throw new Error("Data failed to fetch.");
 
-  const data = (await resp.json()) as TMovie;
-
-  return data;
+  return (await resp.json()) as TMovie;
 }
