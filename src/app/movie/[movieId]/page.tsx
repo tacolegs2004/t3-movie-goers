@@ -12,21 +12,8 @@ const Page = async ({
   };
 }) => {
   const movie = await getMovieCardId({ params });
-  const commentData = await db.query.commentSchema.findMany();
 
-  const newComment = {
-    name: "John Doe",
-    avatar:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    body: "This is a comment",
-    rating: "5",
-    key: "comment-1",
-    created_At: new Date(),
-    updated_At: null,
-    userId: "user-1",
-    movieId: "533535",
-    commentId: "comment-1",
-  };
+  const commentSchema = await db.query.commentSchema.findMany();
 
   return (
     <main className="flex flex-col items-center justify-center">
@@ -62,14 +49,14 @@ const Page = async ({
 
       <SignedIn>
         <section className="mt-16 gap-3 space-y-4">
-          {commentData.map(
+          {commentSchema.map(
             (comment) =>
               comment.movieId === params.movieId && (
                 <CommentComponent comment={comment} key={comment.key} />
               ),
           )}
 
-          <CommentComponent comment={newComment} />
+          {/* <CommentComponent comment={newComment} /> */}
 
           <form className="flex flex-col items-center justify-center gap-2">
             <input type="hidden" name="movieId" value={params.movieId} />
