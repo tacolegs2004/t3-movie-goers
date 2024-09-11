@@ -49,12 +49,9 @@ const Page = async ({
 
       <SignedIn>
         <section className="mt-16 gap-3 space-y-4">
-          {commentSchema.map(
-            (comment) =>
-              comment.movieId === params.movieId && (
-                <CommentComponent comment={comment} key={comment.key} />
-              ),
-          )}
+          {commentSchema.map((comment) => (
+            <CommentComponent comment={comment} />
+          ))}
 
           {/* <CommentComponent comment={newComment} /> */}
 

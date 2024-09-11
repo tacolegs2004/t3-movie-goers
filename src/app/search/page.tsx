@@ -14,6 +14,8 @@ export default async function Page(props: {
   const query = props.searchParams?.query ?? "";
   const searchMovies = await getSearchedMovies({ query: query });
 
+  console.log("test")
+
   if (!searchMovies) return <div>Movies not found...</div>;
 
   return (
@@ -23,11 +25,11 @@ export default async function Page(props: {
         <div className="grid w-[80vw] grid-cols-3 gap-24">
           {searchMovies
             ? searchMovies.results.map((movie) => (
-                <MovieListCard result={movie} key={movie.id} />
-              ))
+              <MovieListCard result={movie} key={movie.id} />
+            ))
             : movieListReq.results.map((movie) => (
-                <MovieListCard result={movie} key={movie.id} />
-              ))}
+              <MovieListCard result={movie} key={movie.id} />
+            ))}
         </div>
       </Suspense>
     </div>
