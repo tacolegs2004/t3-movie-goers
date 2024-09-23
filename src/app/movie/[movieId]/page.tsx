@@ -81,7 +81,7 @@ const Page = async ({
 
           <form
             className="flex flex-col items-center justify-center gap-2"
-            action={addComment}
+            // action={addComment}
           >
             <input type="hidden" name="movieId" value={params.movieId} />
             <textarea
