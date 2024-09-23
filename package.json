@@ -36,6 +36,7 @@
     "zsa-react": "^0.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/eslint": "^8.56.12",
     "@types/node": "^20.16.2",
     "@types/react": "^18.3.5",

@@ -73,6 +73,9 @@ dependencies:
     version: 0.0.1
 
 devDependencies:
+  '@tailwindcss/typography':
+    specifier: ^0.5.15
+    version: 0.5.15(tailwindcss@3.4.10)
   '@types/eslint':
     specifier: ^8.56.12
     version: 8.56.12
@@ -998,6 +1001,18 @@ packages:
       typescript: 5.5.4
       zod: 3.23.8
     dev: false
+
+  /@tailwindcss/typography@0.5.15(tailwindcss@3.4.10):
+    resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 3.4.10
+    dev: true
 
   /@tanstack/query-core@5.53.1:
     resolution: {integrity: sha512-mvLG7s4Zy3Yvc2LsKm8BVafbmPrsReKgqwhmp4XKVmRW9us3KbWRqu3qBBfhVavcUUEHfNK7PvpTchvQpVdFpw==}
@@ -3137,6 +3152,14 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash.castarray@4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+    dev: true
+
+  /lodash.isplainobject@4.0.6:
+    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
+    dev: true
+
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
@@ -3597,6 +3620,14 @@ packages:
     dependencies:
       postcss: 8.4.42
       postcss-selector-parser: 6.1.2
+
+  /postcss-selector-parser@6.0.10:
+    resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
+    engines: {node: '>=4'}
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
+    dev: true
 
   /postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -4312,6 +4343,12 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  /typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: false
+
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
     dependencies:
@@ -4448,7 +4485,7 @@ packages:
     resolution: {integrity: sha512-8ij6UMxdV3BZKDgtUq0hYpVY1rbu/DsxlzWkmHMdk1aGvErVAHWwPmJuG8hqP2nI3PpCcMNfyXSBcyAXM5CL+g==}
     dependencies:
       react: 18.3.1
-      typescript: 5.5.4
+      typescript: 5.6.2
       zod: 3.23.8
       zsa: 0.1.1
     dev: false
@@ -4456,6 +4493,6 @@ packages:
   /zsa@0.1.1:
     resolution: {integrity: sha512-VsJNCrsm8mFZ25y6yiqckup31sMnjduk8hafhYQ93WCJ+L12WpLX++uPaJudnfnVVeSLWy0zrWHnGNtLW0Dl7Q==}
     dependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
       zod: 3.23.8
     dev: false
