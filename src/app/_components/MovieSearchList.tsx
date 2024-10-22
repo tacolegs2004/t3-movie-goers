@@ -1,4 +1,4 @@
-import { type TMovieResult } from "~/lib/types/MovieTypes";
+import { type TMovieResult } from "~/lib/types/MGTypes";
 import MovieListCard from "./MovieListCard";
 
 const MovieSearchList = async ({

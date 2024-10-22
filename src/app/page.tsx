@@ -5,6 +5,8 @@ export default function Home() {
   const popularMovieListReq = getMovies("popular");
   const nowPlayingMovieListReq = getMovies("now_playing");
 
+  if (!popularMovieListReq && !nowPlayingMovieListReq) return null;
+
   return (
     <>
       <section>

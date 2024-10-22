@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 
-const CommentComponent = (props: {
+const Comment = (props: {
   comment: {
     name: string;
     avatar: string;
@@ -17,7 +17,7 @@ const CommentComponent = (props: {
   };
 }) => {
   return (
-    <Card className="mx-16 mb-4 w-[900px] rounded-lg border border-gray-200 bg-gray-100 px-4 py-8 dark:border-gray-700 dark:bg-gray-800">
+    <Card className="mb-4 rounded-lg border border-gray-200 bg-gray-100 px-4 py-8 dark:border-gray-700 dark:bg-gray-800 md:mx-16 md:w-[900px]">
       <div className="flex gap-4">
         <Avatar className="mb-16 h-10 w-10 flex-shrink-0">
           <AvatarImage alt="@shadcn" src={props.comment.avatar || ""} />
@@ -75,4 +75,4 @@ function ReplyIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default CommentComponent;
+export default Comment;

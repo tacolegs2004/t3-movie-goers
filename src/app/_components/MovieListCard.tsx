@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { type TMovieResult } from "~/lib/types/MovieTypes";
+import { type TMovieResult } from "~/lib/types/MGTypes";
 
 const MovieListCard = (props: { result: TMovieResult }) => {
   return (

@@ -5,7 +5,6 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 const Search = (props: { query: string }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { replace } = useRouter();
 
   function handleSearch(term: string) {
@@ -15,18 +14,19 @@ const Search = (props: { query: string }) => {
     } else {
       params.delete("query");
     }
+
     replace(`${pathname}?${params.toString()}`);
   }
 
   return (
-    <div className="relative -mt-8 flex flex-1 flex-shrink-0 p-4 text-black">
+    <div className="relative -mt-8 p-4 text-black">
       <form
         action=""
         className="m-4 mt-8 w-64 rounded-lg border-2 md:w-[400px]"
       >
-        <label htmlFor="search" className="sr-only">
+        {/* <label htmlFor="search" className="sr-only">
           Search
-        </label>
+        </label> */}
         <input
           className="peer block w-full rounded-md p-4 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 focus:ring-white"
           placeholder="Search for a movie"

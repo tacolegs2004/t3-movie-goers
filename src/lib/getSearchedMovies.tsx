@@ -1,4 +1,4 @@
-import { type TMovie } from "./types/MovieTypes";
+import { type TMovie } from "./types/MGTypes";
 
 export default async function getSearchedMovies(params: {
   query?: string;

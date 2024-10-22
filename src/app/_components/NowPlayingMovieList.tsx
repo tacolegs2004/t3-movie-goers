@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { type TMovie } from "~/lib/types/MovieTypes";
+import { type TMovie } from "~/lib/types/MGTypes";
 import MovieListCard from "./MovieListCard";
 import MovieListWrapper from "./MovieListWrapper";
 

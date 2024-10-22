@@ -13,7 +13,7 @@ import { index, pgTableCreator, timestamp, varchar } from "drizzle-orm/pg-core";
 export const createTable = pgTableCreator((name) => `t3-movie-goers_${name}`);
 
 export const commentSchema = createTable(
-  "post",
+  "comment",
   {
     name: varchar("name", { length: 256 }).notNull(),
     avatar: varchar("avatar", { length: 256 })

@@ -1,4 +1,4 @@
-import { type TMovie } from "./types/MovieTypes";
+import { type TMovie } from "./types/MGTypes";
 
 export default async function getMovies(param: string) {
   const resp = await fetch(
