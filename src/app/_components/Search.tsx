@@ -1,5 +1,6 @@
 "use client";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Form from "next/form";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const Search = (props: { query: string }) => {
@@ -20,8 +21,8 @@ const Search = (props: { query: string }) => {
 
   return (
     <div className="relative -mt-8 p-4 text-black">
-      <form
-        action=""
+      <Form
+        action={`/search?query=${""}`}
         className="m-4 mt-8 w-64 rounded-lg border-2 md:w-[400px]"
       >
         {/* <label htmlFor="search" className="sr-only">
@@ -37,7 +38,7 @@ const Search = (props: { query: string }) => {
           defaultValue={props.query}
         />
         <MagnifyingGlassIcon className="absolute left-8 top-1/2 ml-4 mt-2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
-      </form>
+      </Form>
     </div>
   );
 };
