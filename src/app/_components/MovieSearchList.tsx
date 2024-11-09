@@ -7,6 +7,7 @@ const MovieSearchList = async ({
   moviePromise: Promise<TMovieResult[]>;
 }) => {
   const results = await moviePromise;
+
   if (!results) {
     return <div className="text-center text-2xl">No results found</div>;
   }

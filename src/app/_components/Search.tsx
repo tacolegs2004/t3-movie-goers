@@ -25,9 +25,6 @@ const Search = (props: { query: string }) => {
         action={`/search?query=${""}`}
         className="m-4 mt-8 w-64 rounded-lg border-2 md:w-[400px]"
       >
-        {/* <label htmlFor="search" className="sr-only">
-          Search
-        </label> */}
         <input
           className="peer block w-full rounded-md p-4 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 focus:ring-white"
           placeholder="Search for a movie"

@@ -5,19 +5,6 @@ import getMovieById from "~/lib/getMovieById";
 import { db } from "~/server/db";
 import { addNewCommentAction } from "./action";
 
-interface Comment {
-  name: string;
-  avatar: string;
-  body: string;
-  rating: string;
-  key: string;
-  created_At: Date;
-  updated_At: Date | null;
-  userId: string;
-  movieId: string;
-  commentId: string;
-}
-
 export default async function Page({
   params,
 }: {
@@ -25,7 +12,6 @@ export default async function Page({
 }) {
   const movie = await getMovieById({ params });
   const commentSchema = await db.query.commentSchema.findMany();
-  const comments = commentSchema[Number(params.movieId)];
 
   return (
     <>
@@ -36,12 +22,18 @@ export default async function Page({
 
         <SignedIn>
           <div className="gap-3 space-y-4 lg:mt-24">
-            {!commentSchema && (
-              <div>No comments have been posted yet. {":("}</div>
-            )}
             {commentSchema.map((comment) => (
               <Comment key={comment.commentId} comment={comment} />
             ))}
+            {!commentSchema && (
+              <div className="flex h-full w-fit items-center justify-center">
+                <span className="flex h-fit items-center justify-center rounded-lg border-gray-700 text-center transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-2xl dark:border-gray-300 lg:h-full lg:w-full">
+                  <p className="mt-4 overflow-visible text-center text-sm font-bold text-gray-900 transition-all duration-200 ease-in-out hover:underline dark:text-white sm:ml-8 md:w-48">
+                    No comments yet
+                  </p>
+                </span>
+              </div>
+            )}
 
             <form
               className="flex flex-col items-center justify-center gap-2"

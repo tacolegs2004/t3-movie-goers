@@ -1,11 +1,9 @@
 import getMovies from "~/lib/getMovies";
 import MovieList from "./_components/NowPlayingMovieList";
 
-export default function Home() {
+export default async function Home() {
   const popularMovieListReq = getMovies("popular");
   const nowPlayingMovieListReq = getMovies("now_playing");
-
-  if (!popularMovieListReq && !nowPlayingMovieListReq) return null;
 
   return (
     <>
