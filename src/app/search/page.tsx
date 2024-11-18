@@ -3,13 +3,13 @@ import getSearchedMovies from "~/lib/getSearchedMovies";
 import MovieListCard from "../_components/MovieListCard";
 import Search from "../_components/Search";
 
-export default async function Page(props: {
-  searchParams?: {
+const Page = async (props: {
+  searchParams?: Promise<{
     query?: string;
     page?: string;
-  };
-}) {
-  const query = props.searchParams?.query ?? "";
+  }>;
+}) => {
+  const query = (await props.searchParams)?.query ?? "";
   const searchMovies = await getSearchedMovies({ query: query });
 
   if (!searchMovies) return <div>Movies not found.</div>;
@@ -26,4 +26,6 @@ export default async function Page(props: {
       </Suspense>
     </div>
   );
-}
+};
+
+export default Page;

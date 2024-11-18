@@ -2,12 +2,10 @@ import { Suspense } from "react";
 import { type TMovie } from "~/lib/types/MGTypes";
 import MovieListCard from "./MovieListCard";
 
-const PopularMovieList = async ({
-  popularMoviePromise,
-}: {
+const PopularMovieList = async (props: {
   popularMoviePromise: Promise<TMovie>;
 }) => {
-  const { results } = await popularMoviePromise;
+  const { results } = await props.popularMoviePromise;
 
   return (
     <>

@@ -1,8 +1,8 @@
 import { type TMovie } from "./types/MGTypes";
 
-export default async function getSearchedMovies(params: {
+const getSearchedMovies = async (params: {
   query?: string;
-}): Promise<TMovie> {
+}): Promise<TMovie> => {
   const resp = await fetch(
     `https://api.themoviedb.org/3/search/movie?query=${params.query}&api_key=${process.env.NEXT_APP_API_KEY}`,
   );
@@ -12,4 +12,6 @@ export default async function getSearchedMovies(params: {
   const data = (await resp.json()) as TMovie;
 
   return data;
-}
+};
+
+export default getSearchedMovies;

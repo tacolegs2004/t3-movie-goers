@@ -1,12 +1,10 @@
 import { type TMovieResult } from "~/lib/types/MGTypes";
 import MovieListCard from "./MovieListCard";
 
-const MovieSearchList = async ({
-  moviePromise,
-}: {
+const MovieSearchList = async (props: {
   moviePromise: Promise<TMovieResult[]>;
 }) => {
-  const results = await moviePromise;
+  const results = await props.moviePromise;
 
   if (!results) {
     return <div className="text-center text-2xl">No results found</div>;
